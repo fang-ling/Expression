@@ -7,17 +7,22 @@
 
 import Foundation
 
-internal class BinaryExpressionTreeNode {
-    internal var op : String
-    internal var children : [BinaryExpressionTreeNode?]
+class BinaryExpressionTreeNode {
+    var op : String
+    var children : [BinaryExpressionTreeNode?]
     
-    internal init(op: String, children: [BinaryExpressionTreeNode?]) {
+    init(op: String, children: [BinaryExpressionTreeNode?]) {
         self.op = op
         self.children = children
     }
     
-    internal init(op: String) {
+    init(op: String) {
         self.op = op
+        self.children = [BinaryExpressionTreeNode?](repeating: nil, count: 2)
+    }
+    
+    init(op : Operators) {
+        self.op = op.rawValue
         self.children = [BinaryExpressionTreeNode?](repeating: nil, count: 2)
     }
 }
